@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Choix techniques - La virtualisation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style/style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Navigation principale">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Virtualisation</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Afficher le menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Accueil
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="index.html#introduction">Introduction</a></li>
+                            <li><a class="dropdown-item" href="index.html#definition">Définition</a></li>
+                            <li><a class="dropdown-item" href="index.html#comparaison">Différences</a></li>
+                            <li><a class="dropdown-item" href="index.html#types">Types</a></li>
+                            <li><a class="dropdown-item" href="index.html#sauvegarde">Sauvegarde</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link active" href="choix_techniques.html">Choix techniques</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main class="mt-5 pt-5">
+    <section id="choix-techniques" class="container my-5">
+        <h2>Choix techniques et justification lors de la création de la machine virtuelle</h2>
+
+        <article class="mb-4">
+            <h3>Système d’exploitation hôte</h3>
+            <p>
+                Nous avons choisi d’utiliser comme système d’exploitation hôte Windows.
+                Ce système a été retenu car il est largement répandu et compatible avec
+                les principaux outils de virtualisation, notamment Oracle VirtualBox.
+            </p>
+        </article>
+        <article class="mb-4">
+            <h3>Outil de virtualisation</h3>
+            <p>
+                L’outil de virtualisation choisi est Oracle VirtualBox.
+                <b> <br>Pourquoi? </br></b>
+              Parce que c'est une VM gratuite, open-source et très intéressante pour un usage pédagogique.
+            </p>
+        </article>
+
+        <article class="mb-4">
+            <h3>Système d’exploitation invité</h3>
+            <p>
+                Le système d’exploitation installé sur la machine virtuelle est <b> Linux</b> ,
+                plus précisément Ubuntu. Ce choix s’explique par le fait qu’Ubuntu est
+                stable, open-source et peu gourmand en ressources, ce qui le rend idéal
+                pour la virtualisation.
+            </p>
+            <img src="assets/images/ubuntu.png" class="img-container rounded mx-auto d-block my-3"
+                 alt="Installation d'Ubuntu sur VirtualBox">
+        </article>
+        <h4>Affichage et mémoire vidéo</h4>
+        <p>
+            La mémoire vidéo a été réglée à <b> 128 MB</b>, la valeur maximale proposée par VirtualBox,
+            avec le contrôleur graphique VBoxSVGA.
+        </p>
+        <p>
+            Ce choix permet un affichage fluide de l’interface graphique <b>d’Ubuntu</b>,
+            notamment pour l’environnement de bureau, tout en garantissant une bonne compatibilité
+            avec le système Linux.
+        </p>
+
+        <h4>Fonctionnalités supplémentaires</h4>
+        <p>
+            Les options « Remote Desktop Server » et « Recording » ont été désactivées.
+            Cela permet d'augmenter la rapidité de la VM.
+        </p>
+
+        <img src="assets/images/display.png" class="img-container rounded mx-auto d-block my-3"
+             alt="Paramètres d'affichage de la machine virtuelle VirtualBox">
+        
+        <article class="mb-4">
+            <h3>Configuration réseau de la machine virtuelle</h3>
+
+            <p>
+                Afin de permettre le déploiement et l’accessibilité de notre site web Nginx sur le réseau local,
+                la carte réseau de la machine virtuelle a été configurée en mode
+                <strong>Pont (Bridged)</strong> dans VMware.
+                Ce mode permet à la machine virtuelle d’être directement connectée au réseau physique
+                de l’ordinateur hôte, comme un ordinateur indépendant.
+            </p>
+
+            <p>
+                Grâce à ce paramétrage, la machine virtuelle obtient sa propre adresse IP
+                auprès du routeur ou de la box internet. Cela rend le site accessible depuis
+                n’importe quel autre appareil connecté au même réseau local
+                (ordinateur, smartphone ou tablette) en saisissant cette adresse IP
+                dans un navigateur web.
+            </p>
+
+            <p>
+                L’option <strong>« Répliquer l’état de la connexion réseau physique »</strong> a également été activée.
+                Ce choix permet à la machine virtuelle de conserver une connexion stable
+                en suivant automatiquement les changements de connexion de l’hôte,
+                comme le passage du Wi-Fi à une connexion filaire.
+            </p>
+
+            <p>
+                Enfin, le paramètre <strong>« Se connecter lors de la mise sous tension »</strong> a été activé afin
+                de garantir que la carte réseau est opérationnelle dès le démarrage de la machine virtuelle.
+                Cela permet au serveur Nginx d’être immédiatement accessible sur le réseau local,
+                facilitant ainsi les phases de test et de démonstration.
+            </p>
+            <img src="assets/images/reseau.png" class="img-container rounded mx-auto d-block my-3"
+                 alt="Paramètres reseau de la machine virtuelle">
+        </article>
+    </section>
+</main>
+
+<footer class="bg-dark text-white text-center py-3">
+<p class="mb-1">&copy; 2026 – Gabriel LIENARD KWOFIE / Matthieu PEREIRA</p>
+<a href="contact.html" class="text-white text-decoration-underline">
+Page de contact
+</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

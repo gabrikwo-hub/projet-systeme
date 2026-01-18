@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>La virtualisation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style/style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Navigation principale">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Virtualisation</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Afficher le menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Accueil
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#introduction">Introduction</a></li>
+                            <li><a class="dropdown-item" href="#definition">Définition</a></li>
+                            <li><a class="dropdown-item" href="#comparaison">Différences</a></li>
+                            <li><a class="dropdown-item" href="#types">Types</a></li>
+                            <li><a class="dropdown-item" href="#sauvegarde">Sauvegarde</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="choix_techniques.html">Choix techniques</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main id="contenu-principal" class="mt-5 pt-5">
+
+    <section id="introduction" class="container my-5">
+        <h1>La virtualisation</h1>
+        <p class="lead">
+            Cette page présente le principe de la virtualisation, ses différences avec
+            l’émulation et la simulation, ainsi que les types de virtualisation selon
+            différents environnements logiciels.
+        </p>
+    </section>
+
+    <section id="definition" class="container my-5">
+        <h2>Définition de la virtualisation</h2>
+        <p>
+            La virtualisation est une technologie qui permet de faire fonctionner plusieurs
+            systèmes d’exploitation sur une seule machine physique.
+            Elle repose sur un logiciel appelé hyperviseur, chargé de répartir les ressources
+            matérielles entre plusieurs machines virtuelles.
+        </p>
+    </section>
+
+    <section id="comparaison" class="container my-5">
+        <h2>Différence entre émulateur, simulateur et virtualisation</h2>
+
+        <article class="mb-4">
+            <h3>Émulateur</h3>
+            <p>
+                Un émulateur reproduit le fonctionnement d’un autre système matériel ou logiciel
+                afin d’exécuter des programmes conçus pour une architecture différente.
+            </p>
+        </article>
+
+        <article class="mb-4">
+            <h3>Simulateur</h3>
+            <p>
+                Un simulateur imite le comportement d’un système sans reproduire exactement
+                son matériel. Il est principalement utilisé pour l’apprentissage et les tests.
+            </p>
+        </article>
+
+        <article>
+            <h3>Outil de virtualisation</h3>
+            <p>
+                Un outil de virtualisation permet d’exécuter plusieurs systèmes d’exploitation
+                réels sur une même machine en utilisant directement le matériel, ce qui offre
+                de bonnes performances.
+            </p>
+        </article>
+    </section>
+
+    <section id="types" class="container my-5">
+        <h2>Types de virtualisation selon l’environnement</h2>
+
+        <article class="mb-4">
+            <h3>VirtualBox</h3>
+            <p>
+                VirtualBox utilise une virtualisation de type 2, où l’hyperviseur est installé
+                sur un système d’exploitation hôte. Les machines virtuelles s’exécutent donc
+                au-dessus de celui-ci, ce qui rend l’outil simple à utiliser pour la formation
+                et les tests.
+            </p>
+        </article>
+
+        <article class="mb-4">
+            <h3>VMware Workstation</h3>
+            <p>
+                VMware Workstation repose également sur une virtualisation de type 2.
+                Il fonctionne sur un système d’exploitation hôte et propose des fonctionnalités
+                avancées, ce qui le rend adapté à un usage plus professionnel.
+            </p>
+        </article>
+
+        <article>
+            <h3>Stratus</h3>
+            <p>
+                Stratus utilise une virtualisation de type 1, dans laquelle l’hyperviseur est
+                installé directement sur le matériel. Ce type de virtualisation offre de
+                meilleures performances et une grande fiabilité pour les environnements critiques.
+            </p>
+        </article>
+    </section>
+
+    <section id="sauvegarde" class="container my-5">
+        <h2>Forme et lieu de sauvegarde de la machine virtuelle</h2>
+        <p>
+            Les données d’une machine virtuelle sont principalement sauvegardées sous forme
+            de fichiers stockés sur le disque de la machine hôte. Le disque virtuel contient
+            le système d’exploitation, les logiciels et les données, tandis que des fichiers
+            de configuration décrivent les ressources matérielles attribuées.
+        </p>
+        <p>
+            La mémoire vive (RAM) n’est pas sauvegardée de manière permanente. Elle peut
+            cependant être enregistrée temporairement lors de la création d’un snapshot ou
+            lorsque la machine virtuelle est mise en pause.
+        </p>
+        <p>
+            Les sauvegardes sont généralement stockées sur le disque dur ou le SSD de la
+            machine hôte, et peuvent également être copiées sur un support externe ou un
+            stockage réseau dans un contexte professionnel.
+        </p>
+    </section>
+
+</main>
+
+<footer class="bg-dark text-white text-center py-3">
+<p class="mb-1">&copy; 2026 – Gabriel LIENARD KWOFIE / Matthieu PEREIRA</p>
+<a href="contact.html" class="text-white text-decoration-underline">
+Page de contact
+</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
